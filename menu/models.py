@@ -8,6 +8,10 @@ class Menu(models.Model):
     name = models.CharField(max_length=50, unique=True, verbose_name='Название меню')
     description = models.TextField(blank=True, verbose_name='Описание')
 
+    class Meta:
+        verbose_name = "Меню"
+        verbose_name_plural = "Меню"
+
     def __str__(self):
         return self.name
 
@@ -20,6 +24,8 @@ class MenuItem(models.Model):
     order = models.PositiveIntegerField(default=0, verbose_name='Порядок')
 
     class Meta:
+        verbose_name = "Пункт меню"
+        verbose_name_plural = "Пункты меню"
         ordering = ['order']
 
     def get_url(self):
